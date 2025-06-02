@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: iangel-backend
+    env: python
+    buildCommand: ""
+    startCommand: "python iangel_backend_full.py"
+    envVars:
+      - key: FLASK_ENV
+        value: production
