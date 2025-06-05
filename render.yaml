@@ -1,9 +1,22 @@
 services:
   - type: web
-    name: iangel-backend
+    name: SoliAngel
     env: python
-    buildCommand: ""
-    startCommand: "python iangel_backend_full.py"
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn iangel_backend_full:app"
+    branch: main
     envVars:
-      - key: FLASK_ENV
-        value: production
+      - key: RUNPOD_API_KEY
+        value: "À_COMPLÉTER"
+      - key: API_SECRET_KEY
+        value: "supersecretkey"
+      - key: DEFAULT_VOICE
+        value: "fr-FR-Wavenet-E"
+      - key: ANXIETY_MODEL
+        value: "models/dummy_anxiety_voice_model.pkl"
+      - key: FEATURE_SCALER
+        value: "models/dummy_anxiety_feature_scaler.pkl"
+      - key: PHONE_SCAN_MODEL
+        value: "models/scan_phone_model_v2.pkl"
+      - key: USER_MODEL
+        value: "models/iangel_model_v2.pkl"
